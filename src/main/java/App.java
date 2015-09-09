@@ -22,7 +22,7 @@ public class App {
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());
 
-    post("/make_fusion", (request, response) -> {
+    post("/fusion", (request, response) -> {
       HashMap<String, Object> model = new HashMap<String, Object>();
 
       model.put("template", "templates/fusion.vtl");
