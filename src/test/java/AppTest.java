@@ -20,8 +20,14 @@ public class AppTest extends FluentTest {
   public static ServerRule server = new ServerRule();
 
   @Rule
-  public DataBaseRule database = new DataBaseRule();
+  public DatabaseRule database = new DatabaseRule();
 
   @Test
-  // firsttesthere!
+  public void rootTest() {
+    goTo("http://localhost:4567/");
+    assertThat(pageSource()).contains("Gems");
+  }
+
+  @Test
+  public void 
 }
