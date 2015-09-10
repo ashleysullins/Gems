@@ -1,9 +1,0 @@
-<h1>Select another gem for $gem.getName to fuse with:</h1>
-
-#foreach($potentialPair in $gem.getPairs())
-  <form action='/fusion' method='post'>
-  <input id="gem_id" name="gem_id" type="hidden" value="$gem.getId()">
-  <input id="pair_id" name="pair_id" type="hidden" value="$gem.getPairs()">
-  <img src="/src/$gem.getLink().gif"></a>
-#end
-

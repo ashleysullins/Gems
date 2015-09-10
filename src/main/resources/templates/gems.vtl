@@ -1,0 +1,6 @@
+<!DOCTYPE html>
+<h1>Select a gem below:</h1>
+
+#foreach($gem in $gems)
+  <a href="/gem/$gem.getId()"><img src="/img/$gem.getName().png"></a>
+#end

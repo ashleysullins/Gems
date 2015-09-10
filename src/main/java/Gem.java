@@ -24,11 +24,6 @@ public class Gem {
     this.id = id;
   }
 
-  // public List<PotentialPairs> getPotentialPairs() {
-  //   String sql = "select gem1_id, gem2_id from combos where gem1_id = :id;";
-  //   return Arrays.asList(gem_name);
-  // }
-
   @Override
   public boolean equals(Object otherGemObject) {
     if (!(otherGemObject instanceof Gem)) {
@@ -46,7 +41,28 @@ public class Gem {
     }
   }
 
+  public List<Gem> getName() {
+    try(Connection con = DB.sql2o.open()) {
+      String sql = "SELECT gem_name FROM gems WHERE id = :id";
+      return con.createQuery(sql)
+        .addParameter("id", this.id)
+        .executeAndFetch(Gem.class);
+    }
+  }
 
+  /*
+  public void get
+
+  public void save(){
+      try (Connection con = DB.sql2o.open()) {
+        String sql = "INSERT INTO brands (brand_name) VALUES (:brand_name)";
+        this.id = (int) con.createQuery(sql, true)
+        .addParameter("brand_name", brand_name)
+        .executeUpdate()
+        .getKey();
+      }
+    }
+*/
   public static Gem find(int id) {
      try(Connection con = DB.sql2o.open()) {
        String sql = "SELECT * FROM gems WHERE id = :id";

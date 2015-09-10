@@ -9,7 +9,6 @@ import java.util.List;
   public Fusion (String name, String description) {
     this.name = name;
     this.description = description;
-    //this.id = id;
   }
 
   @Override
@@ -44,13 +43,4 @@ import java.util.List;
        return fusion;
      }
    }
-
-  // public int getFusion(int gemOneId, int gemTwoId) {
-  //   //get from the database.... where gemOneId and gemTwoId are
-  //
-  //
-  //
-  // }
-
-
 }
