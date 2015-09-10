@@ -23,7 +23,7 @@ public class App {
     get("/gems", (request, response) -> {
       HashMap<String, Object> model = new HashMap<String, Object>();
       // List<Gem> gems = Gem.all();
-      model.put("gems", gems);
+      // model.put("gems", gems);
       model.put("gems", Gem.all());
       model.put("template", "templates/gems.vtl");
       return new ModelAndView(model, layout);
