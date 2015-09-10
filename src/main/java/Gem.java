@@ -42,6 +42,12 @@ public class Gem {
     return imgURL;
   }
 
+  public String getImgURL2() {
+    String imgURL2 = String.format("/img/%s2.png", gem_name);
+    return imgURL2;
+  }
+
+
   public static List<Gem> all() {
     String sql = "SELECT * FROM gems";
     try(Connection con = DB.sql2o.open()) {

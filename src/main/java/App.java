@@ -29,6 +29,7 @@ public class App {
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());
 
+
     get("/gem/:id", (request, response) -> {
 
       HashMap<String, Object> model = new HashMap<String, Object>();
@@ -40,6 +41,15 @@ public class App {
       model.put("gems", Gem.all());
       model.put("gem", gem);
       model.put("template", "templates/selected-gem.vtl");
+      return new ModelAndView(model, layout);
+    }, new VelocityTemplateEngine());
+
+    get("/loadpage", (request, response) -> {
+      HashMap<String, Object> model = new HashMap<String, Object>();
+      //Get the relevant gems from the params, put into model...
+
+
+      model.put("template", "templates/loadpage.vtl");
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());
 

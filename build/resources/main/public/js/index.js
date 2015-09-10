@@ -263,3 +263,9 @@ $.fn.imagesLoaded = function(callback){
 
   return this;
 };
+
+
+document.querySelector('sutton').addEventListener('click', function(evt) {
+  this.textContent = this.textContent === 'hide' ? 'show' : 'hide';
+  document.querySelector('html').classList.toggle('loading');
+}, false);

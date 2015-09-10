@@ -1,7 +1,17 @@
 <!DOCTYPE html>
 <h1>Select a gem below:</h1>
- <div class =smg>
+#* <div class =smg>
 #foreach($gem in $gems)
     <a href="/gem/$gem.getId()"><img id = "image" src="$gem.getImgURL()" width="250" height="336"></a>
 #end
-</div>
+</div> *#
+
+#foreach($gem in $gems)
+<a href="/gem/$gem.getId()">
+    <img id = "myImage" src="$gem.getImgURL()" width="250" height="336"
+         onmouseover="this.src='$gem.getImgURL2()';"
+         onmouseout="this.src='$gem.getImgURL()';">
+    </img>
+</a>
+
+#end
