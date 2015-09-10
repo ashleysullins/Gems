@@ -30,7 +30,7 @@ SET default_tablespace = '';
 SET default_with_oids = false;
 
 --
--- Name: combos; Type: TABLE; Schema: public; Owner: seg2136; Tablespace: 
+-- Name: combos; Type: TABLE; Schema: public; Owner: Guest; Tablespace: 
 --
 
 CREATE TABLE combos (
@@ -41,10 +41,10 @@ CREATE TABLE combos (
 );
 
 
-ALTER TABLE combos OWNER TO seg2136;
+ALTER TABLE combos OWNER TO "Guest";
 
 --
--- Name: combos_id_seq; Type: SEQUENCE; Schema: public; Owner: seg2136
+-- Name: combos_id_seq; Type: SEQUENCE; Schema: public; Owner: Guest
 --
 
 CREATE SEQUENCE combos_id_seq
@@ -55,17 +55,17 @@ CREATE SEQUENCE combos_id_seq
     CACHE 1;
 
 
-ALTER TABLE combos_id_seq OWNER TO seg2136;
+ALTER TABLE combos_id_seq OWNER TO "Guest";
 
 --
--- Name: combos_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: seg2136
+-- Name: combos_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: Guest
 --
 
 ALTER SEQUENCE combos_id_seq OWNED BY combos.id;
 
 
 --
--- Name: fusions; Type: TABLE; Schema: public; Owner: seg2136; Tablespace: 
+-- Name: fusions; Type: TABLE; Schema: public; Owner: Guest; Tablespace: 
 --
 
 CREATE TABLE fusions (
@@ -75,10 +75,10 @@ CREATE TABLE fusions (
 );
 
 
-ALTER TABLE fusions OWNER TO seg2136;
+ALTER TABLE fusions OWNER TO "Guest";
 
 --
--- Name: fusions_id_seq; Type: SEQUENCE; Schema: public; Owner: seg2136
+-- Name: fusions_id_seq; Type: SEQUENCE; Schema: public; Owner: Guest
 --
 
 CREATE SEQUENCE fusions_id_seq
@@ -89,17 +89,17 @@ CREATE SEQUENCE fusions_id_seq
     CACHE 1;
 
 
-ALTER TABLE fusions_id_seq OWNER TO seg2136;
+ALTER TABLE fusions_id_seq OWNER TO "Guest";
 
 --
--- Name: fusions_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: seg2136
+-- Name: fusions_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: Guest
 --
 
 ALTER SEQUENCE fusions_id_seq OWNED BY fusions.id;
 
 
 --
--- Name: gems; Type: TABLE; Schema: public; Owner: seg2136; Tablespace: 
+-- Name: gems; Type: TABLE; Schema: public; Owner: Guest; Tablespace: 
 --
 
 CREATE TABLE gems (
@@ -109,10 +109,10 @@ CREATE TABLE gems (
 );
 
 
-ALTER TABLE gems OWNER TO seg2136;
+ALTER TABLE gems OWNER TO "Guest";
 
 --
--- Name: gems_id_seq; Type: SEQUENCE; Schema: public; Owner: seg2136
+-- Name: gems_id_seq; Type: SEQUENCE; Schema: public; Owner: Guest
 --
 
 CREATE SEQUENCE gems_id_seq
@@ -123,38 +123,38 @@ CREATE SEQUENCE gems_id_seq
     CACHE 1;
 
 
-ALTER TABLE gems_id_seq OWNER TO seg2136;
+ALTER TABLE gems_id_seq OWNER TO "Guest";
 
 --
--- Name: gems_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: seg2136
+-- Name: gems_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: Guest
 --
 
 ALTER SEQUENCE gems_id_seq OWNED BY gems.id;
 
 
 --
--- Name: id; Type: DEFAULT; Schema: public; Owner: seg2136
+-- Name: id; Type: DEFAULT; Schema: public; Owner: Guest
 --
 
 ALTER TABLE ONLY combos ALTER COLUMN id SET DEFAULT nextval('combos_id_seq'::regclass);
 
 
 --
--- Name: id; Type: DEFAULT; Schema: public; Owner: seg2136
+-- Name: id; Type: DEFAULT; Schema: public; Owner: Guest
 --
 
 ALTER TABLE ONLY fusions ALTER COLUMN id SET DEFAULT nextval('fusions_id_seq'::regclass);
 
 
 --
--- Name: id; Type: DEFAULT; Schema: public; Owner: seg2136
+-- Name: id; Type: DEFAULT; Schema: public; Owner: Guest
 --
 
 ALTER TABLE ONLY gems ALTER COLUMN id SET DEFAULT nextval('gems_id_seq'::regclass);
 
 
 --
--- Data for Name: combos; Type: TABLE DATA; Schema: public; Owner: seg2136
+-- Data for Name: combos; Type: TABLE DATA; Schema: public; Owner: Guest
 --
 
 COPY combos (id, gem1_id, gem2_id, fusion_id) FROM stdin;
@@ -172,14 +172,14 @@ COPY combos (id, gem1_id, gem2_id, fusion_id) FROM stdin;
 
 
 --
--- Name: combos_id_seq; Type: SEQUENCE SET; Schema: public; Owner: seg2136
+-- Name: combos_id_seq; Type: SEQUENCE SET; Schema: public; Owner: Guest
 --
 
 SELECT pg_catalog.setval('combos_id_seq', 10, true);
 
 
 --
--- Data for Name: fusions; Type: TABLE DATA; Schema: public; Owner: seg2136
+-- Data for Name: fusions; Type: TABLE DATA; Schema: public; Owner: Guest
 --
 
 COPY fusions (id, fusion_name, description) FROM stdin;
@@ -192,14 +192,14 @@ COPY fusions (id, fusion_name, description) FROM stdin;
 
 
 --
--- Name: fusions_id_seq; Type: SEQUENCE SET; Schema: public; Owner: seg2136
+-- Name: fusions_id_seq; Type: SEQUENCE SET; Schema: public; Owner: Guest
 --
 
 SELECT pg_catalog.setval('fusions_id_seq', 5, true);
 
 
 --
--- Data for Name: gems; Type: TABLE DATA; Schema: public; Owner: seg2136
+-- Data for Name: gems; Type: TABLE DATA; Schema: public; Owner: Guest
 --
 
 COPY gems (id, gem_name, potential_pairs) FROM stdin;
@@ -213,14 +213,14 @@ COPY gems (id, gem_name, potential_pairs) FROM stdin;
 
 
 --
--- Name: gems_id_seq; Type: SEQUENCE SET; Schema: public; Owner: seg2136
+-- Name: gems_id_seq; Type: SEQUENCE SET; Schema: public; Owner: Guest
 --
 
 SELECT pg_catalog.setval('gems_id_seq', 6, true);
 
 
 --
--- Name: combos_pkey; Type: CONSTRAINT; Schema: public; Owner: seg2136; Tablespace: 
+-- Name: combos_pkey; Type: CONSTRAINT; Schema: public; Owner: Guest; Tablespace: 
 --
 
 ALTER TABLE ONLY combos
@@ -228,7 +228,7 @@ ALTER TABLE ONLY combos
 
 
 --
--- Name: fusions_pkey; Type: CONSTRAINT; Schema: public; Owner: seg2136; Tablespace: 
+-- Name: fusions_pkey; Type: CONSTRAINT; Schema: public; Owner: Guest; Tablespace: 
 --
 
 ALTER TABLE ONLY fusions
@@ -236,7 +236,7 @@ ALTER TABLE ONLY fusions
 
 
 --
--- Name: gems_pkey; Type: CONSTRAINT; Schema: public; Owner: seg2136; Tablespace: 
+-- Name: gems_pkey; Type: CONSTRAINT; Schema: public; Owner: Guest; Tablespace: 
 --
 
 ALTER TABLE ONLY gems
@@ -244,12 +244,12 @@ ALTER TABLE ONLY gems
 
 
 --
--- Name: public; Type: ACL; Schema: -; Owner: seg2136
+-- Name: public; Type: ACL; Schema: -; Owner: epicodus
 --
 
 REVOKE ALL ON SCHEMA public FROM PUBLIC;
-REVOKE ALL ON SCHEMA public FROM seg2136;
-GRANT ALL ON SCHEMA public TO seg2136;
+REVOKE ALL ON SCHEMA public FROM epicodus;
+GRANT ALL ON SCHEMA public TO epicodus;
 GRANT ALL ON SCHEMA public TO PUBLIC;
 
 
