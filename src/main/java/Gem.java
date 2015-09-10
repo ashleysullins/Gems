@@ -34,6 +34,17 @@ public class Gem {
     }
   }
 
+  public String getImgURL() {
+    String imgURL = String.format("/img/%s.png", gem_name);
+    return imgURL;
+  }
+
+  public String getImgURL2() {
+    String imgURL2 = String.format("/img/%s2.png", gem_name);
+    return imgURL2;
+  }
+
+
   public static List<Gem> all() {
     String sql = "SELECT id, gem_name FROM gems";
     try(Connection con = DB.sql2o.open()) {
@@ -41,14 +52,15 @@ public class Gem {
     }
   }
 
-  public List<Gem> getName() {
-    try(Connection con = DB.sql2o.open()) {
-      String sql = "SELECT gem_name FROM gems WHERE id = :id";
-      return con.createQuery(sql)
-        .addParameter("id", this.id)
-        .executeAndFetch(Gem.class);
-    }
-  }
+  // public List<Gem> getGemName() {
+  //   try(Connection con = DB.sql2o.open()) {
+  //     String sql = "SELECT gem_name FROM gems WHERE id = :id";
+  //     return con.createQuery(sql)
+  //       .addParameter("id", this.id)
+  //       .executeAndFetch(Gem.class);
+  //   }
+  // }
+
 
   /*
   public void get
