@@ -3,7 +3,9 @@ import spark.ModelAndView;
 import spark.template.velocity.VelocityTemplateEngine;
 import static spark.Spark.*;
 import java.io.Console;
+
 import java.util.List;
+
 
 public class App {
   public static void main(String[] args) {
@@ -20,9 +22,9 @@ public class App {
 
     get("/gems", (request, response) -> {
       HashMap<String, Object> model = new HashMap<String, Object>();
-      List<Gem> gems = Gem.all();
+      // List<Gem> gems = Gem.all();
       model.put("gems", gems);
-
+      model.put("gems", Gem.all());
       model.put("template", "templates/gems.vtl");
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());
