@@ -34,12 +34,12 @@ import java.util.List;
      }
    }
 
-  public int getFusion(int gemOneId, int gemTwoId) {
-    //get from the database.... where gemOneId and gemTwoId are
+  // public int getFusion(int gemOneId, int gemTwoId) {
+  //   //get from the database.... where gemOneId and gemTwoId are
 
 
 
-  }
+  // }
 
 
 }
