@@ -1,44 +1,46 @@
 import org.sql2o.*;
 import java.util.List;
 import java.util.ArrayList;
+import java.util.Arrays;
+
 
 public class Gem {
-  private String name;
+  private String gem_name;
   private int id;
-  private ArrayList<int> potentialPairs;
 
-  public Gem (String name, int id, ArrayList<int> potentialPairs) {
-    this.id = id;
-    this.name = name;
-    this.potentialPairs = potentialPairs;
+  public Gem (String gem_name) {
+    this.gem_name = gem_name;
   }
 
-  public String getName() {
-    return name;
+  public String getGemName() {
+    return gem_name;
   }
 
   public int getId() {
     return id;
   }
 
-  public ArrayList<int> getPairs() {
-    return potentialPairs;
+  public void setId(int id) {
+    this.id = id;
   }
+
+  // public List<PotentialPairs> getPotentialPairs() {
+  //   String sql = "select gem1_id, gem2_id from combos where gem1_id = :id;";
+  //   return Arrays.asList(gem_name);
+  // }
 
   @Override
   public boolean equals(Object otherGemObject) {
-    if (!(otherGemInstance instanceof Gem)) {
+    if (!(otherGemObject instanceof Gem)) {
       return false;
     } else {
-      Gem newGemInstance = (Gem) otherGemInstance;
-      return this.getName().equals(newGemInstance.getName()) &&
-             this.getPairs() == (newGemInstance.getPairs()) &&
-             this.getId() == newGemInstance.getId();
+      Gem newGemObject = (Gem) otherGemObject;
+      return this.getGemName().equals(newGemObject.getGemName());
     }
   }
 
   public static List<Gem> all() {
-    String sql = "SELECT id, gem_name, potential_pairs FROM gems";
+    String sql = "SELECT id, gem_name FROM gems";
     try(Connection con = DB.sql2o.open()) {
       return con.createQuery(sql).executeAndFetch(Gem.class);
     }

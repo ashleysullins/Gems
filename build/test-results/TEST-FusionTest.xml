@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="FusionTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2015-09-10T18:55:07" hostname="epicodus-110.local" time="0.006">
+  <properties/>
+  <testcase name="equals_returnsTrueIfSame" classname="FusionTest" time="0.006"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

@@ -9,7 +9,18 @@ import java.util.List;
   public Fusion (String name, String description) {
     this.name = name;
     this.description = description;
-    this.id = id;
+    //this.id = id;
+  }
+
+  @Override
+  public boolean equals(Object otherFusion) {
+    if (!(otherFusion instanceof Fusion)) {
+      return false;
+    } else {
+      Fusion newFusion = (Fusion) otherFusion;
+      return this.getName().equals(newFusion.getName()) &&
+      this.getDescription().equals(newFusion.getDescription());
+    }
   }
 
   public String getName() {
@@ -34,12 +45,12 @@ import java.util.List;
      }
    }
 
-  public int getFusion(int gemOneId, int gemTwoId) {
-    //get from the database.... where gemOneId and gemTwoId are
-
-
-
-  }
+  // public int getFusion(int gemOneId, int gemTwoId) {
+  //   //get from the database.... where gemOneId and gemTwoId are
+  //
+  //
+  //
+  // }
 
 
 }
