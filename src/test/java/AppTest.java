@@ -28,6 +28,4 @@ public class AppTest extends FluentTest {
     assertThat(pageSource()).contains("Gems");
   }
 
-  @Test
-  public void 
 }

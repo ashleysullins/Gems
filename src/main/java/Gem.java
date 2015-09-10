@@ -3,48 +3,74 @@ import java.util.List;
 import java.util.ArrayList;
 
 public class Gem {
-  private String name;
+  private String gem_name;
   private int id;
-  private ArrayList<int> potentialPairs;
+  private ArrayList<Integer> potential_pairs;
 
-  public Gem (String name, int id, ArrayList<int> potentialPairs) {
+  public Gem (String gem_name, int id, ArrayList<Integer> potential_pairs) {
     this.id = id;
-    this.name = name;
-    this.potentialPairs = potentialPairs;
+    this.gem_name = gem_name;
+    this.potential_pairs = potential_pairs;
   }
 
-  public String getName() {
-    return name;
+  public String getGemName() {
+    return gem_name;
   }
 
   public int getId() {
     return id;
   }
 
-  public ArrayList<int> getPairs() {
-    return potentialPairs;
+  public ArrayList<Integer> getPotentialPairs() {
+    return potential_pairs;
   }
 
   @Override
-  public boolean equals(Object otherGemObject) {
+  public boolean equals(Object otherGemInstance) {
     if (!(otherGemInstance instanceof Gem)) {
       return false;
     } else {
       Gem newGemInstance = (Gem) otherGemInstance;
-      return this.getName().equals(newGemInstance.getName()) &&
-             this.getPairs() == (newGemInstance.getPairs()) &&
+      return this.getGemName().equals(newGemInstance.getGemName()) &&
+             this.getPotentialPairs() == (newGemInstance.getPotentialPairs()) &&
              this.getId() == newGemInstance.getId();
     }
   }
 
+  public String getImgURL() {
+    String imgURL = String.format("/img/%s.png", gem_name);
+    return imgURL;
+  }
+
   public static List<Gem> all() {
-    String sql = "SELECT id, gem_name, potential_pairs FROM gems";
+    String sql = "SELECT * FROM gems";
     try(Connection con = DB.sql2o.open()) {
       return con.createQuery(sql).executeAndFetch(Gem.class);
     }
   }
 
+  // public List<Gem> getGemName() {
+  //   try(Connection con = DB.sql2o.open()) {
+  //     String sql = "SELECT gem_name FROM gems WHERE id = :id";
+  //     return con.createQuery(sql)
+  //       .addParameter("id", this.id)
+  //       .executeAndFetch(Gem.class);
+  //   }
+  // }
 
+  /*
+  public void get
+
+  public void save(){
+      try (Connection con = DB.sql2o.open()) {
+        String sql = "INSERT INTO brands (brand_name) VALUES (:brand_name)";
+        this.id = (int) con.createQuery(sql, true)
+        .addParameter("brand_name", brand_name)
+        .executeUpdate()
+        .getKey();
+      }
+    }
+*/
   public static Gem find(int id) {
      try(Connection con = DB.sql2o.open()) {
        String sql = "SELECT * FROM gems WHERE id = :id";
