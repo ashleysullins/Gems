@@ -3,6 +3,7 @@ import spark.ModelAndView;
 import spark.template.velocity.VelocityTemplateEngine;
 import static spark.Spark.*;
 import java.io.Console;
+import java.util.ArrayList;
 
 import java.util.List;
 
@@ -34,12 +35,13 @@ public class App {
 
       HashMap<String, Object> model = new HashMap<String, Object>();
       int gemId = Integer.parseInt(request.params("id"));
-      System.out.println(gemId);
+      // System.out.println(gemId);
       Gem gem = Gem.find(gemId);
-      System.out.println(gem);
+      ArrayList<Gem> gems = gem.getCombos();
 
-      model.put("gems", Gem.all());
       model.put("gem", gem);
+       model.put("gems", gems);
+      //model.put("gemId", gemId);
       model.put("template", "templates/selected-gem.vtl");
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());

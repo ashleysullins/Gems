@@ -1,18 +1,11 @@
 
 <h1>Select another gem for $gem.getGemName() to fuse with:</h1>
 
-#foreach($potential_pair in $gem.getPotentialPairs())
-  <form action='/fusion' method='post'>
-  <input id="gem_id" name="gem_id" type="hidden" value="$gem.getId()">
-  <input id="pair_id" name="pair_id" type="hidden" value="$gem.getPotentialPairs()">
-  <img src="/src/$gem.getLink().gif"></a>
+#foreach($gem in $gems)
+<a href="/gem/$gem.getId()">
+    <img id = "myImage" src="$gem.getImgURL()" width="250" height="336"
+         onmouseover="this.src='$gem.getImgURL2()';"
+         onmouseout="this.src='$gem.getImgURL()';">
+    </img>
+</a>
 #end
-
-<form action="/loadpage" method="post">
-  #* Put the values for gems 1 and 2 below
-  <label for="gem1" name="gem1" type="hidden">
-    <label for="gem2" name="gem2" type="hidden">
-      *#
-
-  <button class = "sparkley last" type="submit">Fuse</button>
-</form>

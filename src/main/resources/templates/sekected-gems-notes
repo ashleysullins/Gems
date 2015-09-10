@@ -1,0 +1,9 @@
+
+<form action="/loadpage" method="post">
+  #* Put the values for gems 1 and 2 below
+  <label for="gem1" name="gem1" type="hidden">
+    <label for="gem2" name="gem2" type="hidden">
+      *#
+
+  <button class = "sparkley last" type="submit">Fuse</button>
+</form>

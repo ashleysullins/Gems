@@ -8,10 +8,9 @@ public class Combo {
   private int fusion_id;
   private int id;
 
-  public Combo (int gem1_id, int gem2_id, int fusion_id) {
+  public Combo (int gem1_id) {
     this.gem1_id = gem1_id;
-    this.gem2_id = gem2_id;
-    this.fusion_id = fusion_id;
+
   }
 
   public int getGem1() {
@@ -52,4 +51,5 @@ public class Combo {
         return combos;
     }
   }
+
 }
