@@ -2,13 +2,11 @@
 <h1>Select another gem for $firstGem.getGemName() to fuse with:</h1>
 
 #foreach($gem in $gems)
-<form action='/fusion' method='post'>
-    <input id="fusionChoice1" name="fusionChoice1" class="form-control" type="hidden" value="$firstGem.getId()">
-    <input id="fusionChoice2" name="fusionChoice2" class="form-control" type="hidden" value="$gem.getId()">
+<form action='/fusion' method='post' style="display:inline!important;">
+    <input id="fusionChoice1" name="fusionChoice1" type="hidden" value="$firstGem.getId()">
+    <input id="fusionChoice2" name="fusionChoice2" type="hidden" value="$gem.getId()">
     <input type="image" id="$gem.getId()" name="$gem.getId()" src="$gem.getImgURL()" width="250" height="336"
          onmouseover="this.src='$gem.getImgURL2()';"
          onmouseout="this.src='$gem.getImgURL()';">
-    </img>
-</a>
-</form>
+    </img></a></form>
 #end
