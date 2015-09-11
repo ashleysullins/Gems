@@ -165,8 +165,8 @@ COPY combos (id, gem1_id, gem2_id, fusion_id) FROM stdin;
 6	3	4	4
 7	3	1	5
 8	4	3	4
-9	5	6	5
-10	6	5	5
+10	6	5	3
+9	5	6	3
 \.
 
 

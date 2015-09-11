@@ -44,5 +44,16 @@ import java.util.List;
      }
    }
 
+   public String getImgURL() {
+     String imgURL = String.format("/img/%s.png", fusion_name);
+     return imgURL;
+   }
+
+   public String getImgURL2() {
+     String imgURL2 = String.format("/img/%s2.png", fusion_name);
+     return imgURL2;
+   }
+
+
 
 }
