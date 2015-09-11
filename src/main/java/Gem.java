@@ -44,7 +44,6 @@ public class Gem {
     return imgURL2;
   }
 
-
   public static List<Gem> all() {
     String sql = "SELECT id, gem_name FROM gems";
     try(Connection con = DB.sql2o.open()) {
@@ -52,71 +51,25 @@ public class Gem {
     }
   }
 
-  // public List<Gem> getGemName() {
-  //   try(Connection con = DB.sql2o.open()) {
-  //     String sql = "SELECT gem_name FROM gems WHERE id = :id";
-  //     return con.createQuery(sql)
-  //       .addParameter("id", this.id)
-  //       .executeAndFetch(Gem.class);
-  //   }
-  // }
-
-
-  /*
-  public void get
-
-  public void save(){
-      try (Connection con = DB.sql2o.open()) {
-        String sql = "INSERT INTO brands (brand_name) VALUES (:brand_name)";
-        this.id = (int) con.createQuery(sql, true)
-        .addParameter("brand_name", brand_name)
-        .executeUpdate()
-        .getKey();
-      }
-    }
-*/
-
-public ArrayList<Gem> getCombos(){
-  try(Connection con = DB.sql2o.open()) {
-    String sql = "SELECT gem2_id FROM combos WHERE gem1_id = :id";
-    List<Integer> gemIds = con.createQuery(sql)
-      .addParameter("id", this.id)
-      .executeAndFetch(Integer.class);
+  public ArrayList<Gem> getCombos(){
+    try(Connection con = DB.sql2o.open()) {
+      String sql = "SELECT gem2_id FROM combos WHERE gem1_id = :id";
+      List<Integer> gemIds = con.createQuery(sql)
+        .addParameter("id", this.id)
+        .executeAndFetch(Integer.class);
 
       ArrayList<Gem> gems = new ArrayList<Gem>();
 
-      for(Integer gemId : gemIds) {
-        String gemQuery = "Select * From gems WHERE id = :gemId";
-        Gem gem = con.createQuery(gemQuery)
+    for(Integer gemId : gemIds) {
+      String gemQuery = "Select * From gems WHERE id = :gemId";
+      Gem gem = con.createQuery(gemQuery)
         .addParameter("gemId", gemId)
         .executeAndFetchFirst(Gem.class);
-        gems.add(gem);
-      }
-      return gems;
+      gems.add(gem);
+      } return gems;
     }
-}
+  }
 
-/*
-public ArrayList<Student> getStudents() {
-   try(Connection con = DB.sql2o.open()){
-     String sql = "SELECT student_id FROM courses_students WHERE course_id = :course_id";
-     List<Integer> studentIds = con.createQuery(sql)
-       .addParameter("course_id", this.getId())
-       .executeAndFetch(Integer.class);
-
-     ArrayList<Student> students = new ArrayList<Student>();
-
-     for (Integer studentId : studentIds) {
-         String studentQuery = "Select * From students WHERE id = :studentId";
-         Student student = con.createQuery(studentQuery)
-           .addParameter("studentId", studentId)
-           .executeAndFetchFirst(Student.class);
-         students.add(student);
-     }
-     return students;
-   }
- }
- */
 
   public static Gem find(int id) {
      try(Connection con = DB.sql2o.open()) {
@@ -127,16 +80,4 @@ public ArrayList<Student> getStudents() {
        return gem;
      }
    }
-
- ////idkkkkkkkkk?!?!!
-//   public List<Pair> getPairs() {
-//   try(Connection con = DB.sql2o.open()) {
-//     String sql = "SELECT potential_pairs.* FROM stores JOIN stores_brands ON (stores.id = stores_brands.stores_id) JOIN brands ON (stores_brands.brands_id = brands.id) WHERE stores.id = :id";
-//     List<Pair> potentialpairs = con.createQuery(sql)
-//         .addParameter("id", id)
-//         .executeAndFetch(Pair.class);
-//     return potentialpairs;
-//   }
-// }
-
 }

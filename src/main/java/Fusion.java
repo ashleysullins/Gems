@@ -2,12 +2,12 @@ import org.sql2o.*;
 import java.util.List;
 
   public class Fusion {
-    private String name;
+    private String fusion_name;
     private String description;
     private int id;
 
   public Fusion (String name, String description) {
-    this.name = name;
+    this.fusion_name = fusion_name;
     this.description = description;
   }
 
@@ -23,7 +23,7 @@ import java.util.List;
   }
 
   public String getName() {
-    return name;
+    return fusion_name;
   }
 
   public String getDescription() {
@@ -43,4 +43,6 @@ import java.util.List;
        return fusion;
      }
    }
+
+
 }

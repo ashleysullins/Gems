@@ -36,10 +36,10 @@ public class App {
       HashMap<String, Object> model = new HashMap<String, Object>();
       int gemId = Integer.parseInt(request.params("id"));
       // System.out.println(gemId);
-      Gem gem = Gem.find(gemId);
-      ArrayList<Gem> gems = gem.getCombos();
+      Gem firstGem = Gem.find(gemId);
+      ArrayList<Gem> gems = firstGem.getCombos();
 
-      model.put("gem", gem);
+      model.put("firstGem", firstGem);
        model.put("gems", gems);
       //model.put("gemId", gemId);
       model.put("template", "templates/selected-gem.vtl");
@@ -57,6 +57,23 @@ public class App {
 
     post("/fusion", (request, response) -> {
       HashMap<String, Object> model = new HashMap<String, Object>();
+
+      int gemIdOne = Integer.parseInt(request.queryParams("fusionChoice1"));
+      Gem firstGem = Gem.find(gemIdOne);
+      model.put("gemOne", firstGem);
+      System.out.println(gemIdOne);
+
+      int gemIdTwo = Integer.parseInt(request.queryParams("fusionChoice2"));
+      Gem secondGem = Gem.find(gemIdTwo);
+      model.put("gemTwo", secondGem);
+      System.out.println(gemIdTwo);
+
+      Combo comboObject = new Combo(gemIdOne, gemIdTwo);
+      int fusionId = comboObject.getFusionId();
+
+    Fusion fusion = Fusion.find(fusionId);
+      model.put("fusion", fusion);
+      System.out.println(fusionId);
 
       model.put("template", "templates/fusion.vtl");
       return new ModelAndView(model, layout);
