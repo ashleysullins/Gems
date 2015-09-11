@@ -16,14 +16,13 @@ public class FusionTest {
     assertTrue(firstFusion.equals(secondFusion));
   }
 
-  // @Test
-  // public void find_returnsObjectByID() {
-  //   Fusion fusion = new Fusion("Opal");
-  //   fusion.save();
-  //   Fusion saved = Fusion.find(fusion.getId());
-  //   assertTrue(fusion.equals(saved));
-  // }
-  //
+  @Test
+  public void find_returnsObjectByID() {
+    Fusion fusion = new Fusion("Opal", "GEEMMM");
+    Fusion saved = Fusion.find(fusion.getId());
+    assertTrue(fusion.equals(saved));
+  }
+
   // @Test
   // public void find_findFusionInDatabase_true() {
   //   Fusion myFusion = new Fusion("Opal");
