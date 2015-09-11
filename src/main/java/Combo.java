@@ -28,12 +28,19 @@ public class Combo {
     return fusion_id;
   }
 
+  public static List<Combo> all() {
+    String sql = "SELECT id, gem1_id, gem2_id, fusion_id FROM combos";
+    try(Connection con = DB.sql2o.open()) {
+      return con.createQuery(sql).executeAndFetch(Combo.class);
+    }
+  }
+
   // public String getFusion() {
   //     String sql ="SELECT fusion_id FROM combos WHERE (((gem1_id = :gem1_id) OR (gem2_id = :gem1_id)) && ((gem1_id = :gem2_id) OR (gem2_id = :gem2_id)))";
   //   } return fusion;
   // }
 
-  // 
+  //
   // public ArrayList<Combo> getPotentialPairs() {
   //   try(Connection con = DB.sql2o.open()) {
   //   String sql = "SELECT gem_name FROM gems JOIN combos ON (combos.gem1_id = gems.id) OR (combos.gem2_id = gems.id) WHERE combos.id = :id";

@@ -10,36 +10,20 @@ public class FusionTest {
   public DatabaseRule database = new DatabaseRule();
 
   @Test
-  public void equals_returnsTrueIfSame() {
-    Fusion firstFusion = new Fusion("Opal", "GEEEMMM");
-    Fusion secondFusion = new Fusion("Opal", "GEEEMMM");
-    assertTrue(firstFusion.equals(secondFusion));
+  public void find_FusionInDatabase_true() {
+    Fusion savedFusion = Fusion.find(1);
+    assertEquals("Opal", savedFusion.getName());
   }
 
   @Test
-  public void find_returnsObjectByID() {
-    Fusion fusion = new Fusion("Opal", "GEEMMM");
-    Fusion saved = Fusion.find(fusion.getId());
-    assertTrue(fusion.equals(saved));
-  }
+   public void find_FusionDescription_true() {
+     Fusion savedFusion = Fusion.find(1);
+     assertEquals("Ultra-powerful, stone-cold Betty.", savedFusion.getDescription());
+   }
 
-  // @Test
-  // public void find_findFusionInDatabase_true() {
-  //   Fusion myFusion = new Fusion("Opal");
-  //   myFusion.save();
-  //   Fusion savedFusion = Fusion.find(myFusion.getId());
-  //   assertTrue(myFusion.equals(savedFusion));
-  // }
-  //
-  // @Test
-  // public void getPairs_returnsPotentialPairs() {
-  //   Fusion myFusionOptions = new Fusion("Opal");
-  // }
-  //
-  // @Test
-  // public void all_returnSixItems() {
-  //   assertEquals(Fusion.all().size(), 6);
-  // }
-
+   @Test
+   public void all_returnAllItems() {
+     assertEquals(Fusion.all().size(), 5);
+   }
 
 }
