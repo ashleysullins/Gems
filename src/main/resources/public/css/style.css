@@ -63,6 +63,11 @@ h1 {
   border-radius: 5px;
 }
 
+.gemimg {
+  min-height: 336px;
+  width: auto;
+}
+
 p {
   padding: 5px 10px;
   display: inline-block;
