@@ -71,7 +71,7 @@ public class App {
       Combo comboObject = new Combo(gemIdOne, gemIdTwo);
       int fusionId = comboObject.getFusionId();
 
-    Fusion fusion = Fusion.find(fusionId);
+      Fusion fusion = Fusion.find(fusionId);
       model.put("fusion", fusion);
       System.out.println(fusionId);
 

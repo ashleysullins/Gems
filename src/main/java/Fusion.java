@@ -18,7 +18,8 @@ import java.util.List;
     } else {
       Fusion newFusion = (Fusion) otherFusion;
       return this.getName().equals(newFusion.getName()) &&
-      this.getDescription().equals(newFusion.getDescription());
+      this.getDescription().equals(newFusion.getDescription()) &&
+      this.getId() == newFusion.getId();
     }
   }
 
@@ -43,6 +44,23 @@ import java.util.List;
        return fusion;
      }
    }
+
+   public static List<Fusion> all() {
+     String sql = "SELECT id, fusion_name, description FROM fusions";
+     try(Connection con = DB.sql2o.open()) {
+       return con.createQuery(sql).executeAndFetch(Fusion.class);
+     }
+   }
+
+  //  public void save() {
+  //  try(Connection con = DB.sql2o.open()) {
+  //    String sql = "INSERT INTO fusions (name, description) VALUES (:name, :description)";
+  //      this.id = (int) con.createQuery(sql, true)
+  //      .addParameter("name", name)
+  //      .executeUpdate()
+  //      .getKey();
+  //    }
+  //  }
 
    public String getImgURL() {
      String imgURL = String.format("/img/%s.png", fusion_name);

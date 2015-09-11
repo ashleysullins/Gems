@@ -9,10 +9,9 @@ public class DatabaseRule extends ExternalResource {
 
   protected void after() {
     try(Connection con = DB.sql2o.open()) {
-      // WILL BE NAMING THESE BASED ON USER-GENERATED TABLE
-      // String deleteTasksQuery = "DELETE FROM tasks *;";
+      // String deleteFusionsQuery = "DELETE FROM fusions WHERE id >= 6;";
       // String deleteCategoriesQuery = "DELETE FROM categories *;";
-      // con.createQuery(deleteTasksQuery).executeUpdate();
+      // con.createQuery(deleteFusionsQuery).executeUpdate();
       // con.createQuery(deleteCategoriesQuery).executeUpdate();
     }
   }
