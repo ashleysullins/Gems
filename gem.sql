@@ -104,8 +104,7 @@ ALTER SEQUENCE fusions_id_seq OWNED BY fusions.id;
 
 CREATE TABLE gems (
     id integer NOT NULL,
-    gem_name character varying,
-    potential_pairs integer[]
+    gem_name character varying
 );
 
 
@@ -202,13 +201,13 @@ SELECT pg_catalog.setval('fusions_id_seq', 5, true);
 -- Data for Name: gems; Type: TABLE DATA; Schema: public; Owner: Guest
 --
 
-COPY gems (id, gem_name, potential_pairs) FROM stdin;
-1	Garnet	{2,3}
-2	Amethyst	{3,1}
-3	Pearl	{2,4,1}
-4	Rose Quartz	{3}
-5	Jasper	{6}
-6	Lapis Lazuli	{5}
+COPY gems (id, gem_name) FROM stdin;
+1	Garnet
+2	Amethyst
+3	Pearl
+4	Rose Quartz
+5	Jasper
+6	Lapis Lazuli
 \.
 
 
