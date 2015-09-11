@@ -46,12 +46,10 @@ public class App {
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());
 
-    get("/loadpage", (request, response) -> {
+    get("/video", (request, response) -> {
       HashMap<String, Object> model = new HashMap<String, Object>();
-      //Get the relevant gems from the params, put into model...
 
-
-      model.put("template", "templates/loadpage.vtl");
+      model.put("template", "templates/video.vtl");
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());
 
